@@ -12,7 +12,7 @@
     </div>
     <ul class="list-group">
         @foreach($todos as $key => $todo)
-            <livewire:todo-item :$todo :key="$todo->id" />
+            <livewire:todo-item :$todo key="{{ now() }}" />
         @endforeach
     </ul>
 </div>
