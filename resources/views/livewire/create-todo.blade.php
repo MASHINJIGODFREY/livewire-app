@@ -1,17 +1,15 @@
 <div class="container mt-5">
     <h1 class="text-center">Create New Todo</h1>
     @if (session()->has('status'))
-    <div class="alert alert-success" wire:transition>{{ session('status') }}</div>
+    <div class="alert alert-success" role="alert" wire:transition>{{ session('status') }}</div>
     @endif
     <form wire:submit.prevent="submitForm">
         <div class="form-group">
             <label for="todoTitle">Todo Description</label>
             <input type="text" class="form-control @error('description') is-invalid @enderror" id="todoDescription" placeholder="Enter todo description" wire:model="description">
-            <div>
             @error('description') 
             <div class="invalid-feedback" style="display: block;">{{ $message }}</div>
             @enderror
-            </div>
         </div>
         <div class="form-group">
             <label for="todoPriority">Priority</label>
