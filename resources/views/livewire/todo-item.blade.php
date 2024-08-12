@@ -1,4 +1,4 @@
-<li class="list-group-item todo-item" wire:transition>
+<li class="list-group-item todo-item">
     <div class="d-flex justify-content-between align-items-center">
         @if($todo->priority == "low")<span class="lowpriority"></span>@endif
         @if($todo->priority == "medium")<span class="mediumpriority"></span>@endif
