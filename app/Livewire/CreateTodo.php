@@ -43,6 +43,7 @@ class CreateTodo extends Component
             'complete' => $this->complete,
         ]); 
         session()->flash('status', 'Todo successfully saved.');
+        $this->dispatch('alert_remove');
         $this->reset(['description', 'priority']);
     }
 

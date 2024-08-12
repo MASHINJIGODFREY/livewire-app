@@ -1,8 +1,10 @@
 <div class="container mt-5">
     <h1 class="text-center">Create New Todo</h1>
+    <div id="toastrMsg">
     @if (session()->has('status'))
     <div class="alert alert-success" role="alert" wire:transition>{{ session('status') }}</div>
     @endif
+    </div>
     <form wire:submit.prevent="submitForm">
         <div class="form-group">
             <label for="todoTitle">Todo Description</label>
@@ -32,3 +34,14 @@
         </a>
     </form>
 </div>
+
+@script
+<script>
+$wire.on('alert_remove', () => {
+    setTimeout(function(){ 
+        var toastrMsgElement = document.getElementById("toastrMsg");
+        toastrMsgElement.remove();
+    }, 3000); // 3 secs
+});
+</script>
+@endscript
